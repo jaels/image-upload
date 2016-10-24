@@ -18,3 +18,22 @@ $('#submit').on('click', function() {
         }
     });
 });
+
+
+$('#submit-url').on('click', function() {
+
+    var input={};
+    input.url=$('#url').val();
+
+
+
+    $.ajax({
+        url: '/upload-url',
+        method: 'POST',
+        data: input,
+        success: function(data) {
+            console.log(data);
+            $("#uploaded").attr('src', data.file);
+        }
+    });
+});
